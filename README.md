@@ -32,11 +32,6 @@ pip install -v --no-build-isolation ./DWN/
 pip install -r requirements.txt
 ```
 
-8. Set MuJoCo rendering backend (for headless servers)
-```bash
-export MUJOCO_GL=egl
-```
-
 # Run examples
 Run the training script by selecting a `network_type`. **Note:** `wnn` requires a CUDA-enabled device, while `float` and `quant` should be run on CPU.
 
