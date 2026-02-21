@@ -37,18 +37,18 @@ Run the training script by selecting a `network_type`. **Note:** `wnn` requires 
 
 ### 1. Weightless Neural Network (WNN) - *Requires CUDA*
 ```bash
-python sac.py --network-type wnn --l=2 --size 512 --bits 63 --n 6 --cuda --env-id=HalfCheetah-v4 --no-track
+python sac.py --network-type wnn --l=2 --size 512 --bits 63 --n 6 --cuda --env-id=HalfCheetah-v4 --no-track --total_timesteps=100000
 ```
 
 
 ### 2. Float
 ```bash
-python sac.py --network-type float --l 3 --size=256 --no-cuda --env-id=HalfCheetah-v4 --no-track
+python sac.py --network-type float --l 3 --size=256 --no-cuda --env-id=HalfCheetah-v4 --no-track --total_timesteps=100000
 ```
 
 ### 3. Quant 
 ```bash
-python sac.py --network-type quant --l 3  --size=256 --n-bit-quantization 8 --initial-quantization 8 --last_bit_width 8 --no-cuda --env-id=HalfCheetah-v4 --no-track
+python sac.py --network-type quant --l 3  --size=256 --n-bit-quantization 8 --initial-quantization 8 --last_bit_width 8 --no-cuda --env-id=HalfCheetah-v4 --no-track --total_timesteps=100000
 ```
 
 
