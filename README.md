@@ -21,7 +21,7 @@ pip install torch==2.3.0+cu118 -f https://download.pytorch.org/whl/torch_stable.
 git clone https://github.com/alanbacellar/DWN
 ```
 ```bash
-pip install wheel
+pip install setuptools wheel
 ```
 ```bash
 pip install -v --no-build-isolation ./DWN/
