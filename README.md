@@ -69,3 +69,7 @@ tensorboard --logdir models
 ```
 
 Results can also be logged to wandb.
+
+# Verilog Conversion Code and FINN
+
+soon!
