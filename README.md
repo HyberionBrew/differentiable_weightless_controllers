@@ -60,13 +60,15 @@ python sac.py --network-type quant --l 3  --size=256 --n-bit-quantization 8 --in
 | **wnn** | `--size`, `--bits`, `--n` | Input size, thermometer bits, and LUT inputs. |
 | **quant** | `--n-bit-quantization`, `--initial-quantization`, `--last-bit-width`, `--enable-quant-step` | Bit-widths and quantization timing. |
 
+`ddpg.py` and `ppo.py` have similar parameters, but sometimes less is configurable from the cl.
 
 ## View Results
 
-Results are per default saved in runs or models. They are saved in a tensorboard format:
+Results are per default, saved in runs or models. They are saved in a tensorboard format:
 ```bash
 tensorboard --logdir models
 ```
+to view.
 
 Results can also be logged to wandb.
 
