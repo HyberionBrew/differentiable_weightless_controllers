@@ -6,22 +6,36 @@ Code based on the CleanRL implementations of the corresponding algorithms: https
 
 1. Load system modules (if on a cluster, otherwise install locally, gcc 10 plays nice, higher versions might not work)
 
-```module load cuda/11.8
-module load gcc/10```
+```bash
+module load cuda/11.8
+module load gcc/10
+```
 
 2. Install PyTorch with specific CUDA 11.8 support
-`pip install torch==2.3.0+cu118 -f https://download.pytorch.org/whl/torch_stable.html`
+```bash
+pip install torch==2.3.0+cu118 -f https://download.pytorch.org/whl/torch_stable.html
+```
 
-3. Install DWN (Requires local clone)
-`git clone https://github.com/alanbacellar/DWN`
-`pip install wheel`
-`pip install -v --no-build-isolation ./DWN/`
+4. Install DWN (Requires local clone)
+```bash
+git clone https://github.com/alanbacellar/DWN
+```
+```bash
+pip install wheel
+```
+```bash
+pip install -v --no-build-isolation ./DWN/
+```
 
-4. Install remaining dependencies
-`pip install -r requirements.txt`
+6. Install remaining dependencies
+```bash
+pip install -r requirements.txt
+```
 
-5. Set MuJoCo rendering backend (for headless servers)
-`export MUJOCO_GL=egl`
+8. Set MuJoCo rendering backend (for headless servers)
+```bash
+export MUJOCO_GL=egl
+```
 
 # Run examples
 Run the training script by selecting a `network_type`. **Note:** `wnn` requires a CUDA-enabled device, while `float` and `quant` should be run on CPU.
