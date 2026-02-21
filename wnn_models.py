@@ -59,7 +59,7 @@ class WNN(nn.Module):
                 nn.Flatten(),
                 dwn.LUTLayer(self.obs_dim* self.bits, 
                     padded_out_dim, n=n, 
-                    mapping=map, device=device)
+                    mapping=map,)
             )
             
         else:
@@ -67,7 +67,7 @@ class WNN(nn.Module):
                 nn.Flatten(),
                 dwn.LUTLayer(self.obs_dim* self.bits, 
                             sizes[0], n=n, 
-                            mapping=map, device=device)
+                            mapping=map)
             )
             if later_learnable:
                 map = "learnable"
@@ -77,7 +77,6 @@ class WNN(nn.Module):
                 actor_net_lgn.append(dwn.LUTLayer(sizes[i - 1],
                                                 sizes[i], 
                                                 n=n,
-                                                device=device,
                                                 mapping=map,))
             base_out_dim = sizes[-1]                 
             padded_out_dim = pad_dim_if_needed(base_out_dim, act_dim) 
@@ -85,7 +84,7 @@ class WNN(nn.Module):
             actor_net_lgn.append(dwn.LUTLayer(sizes[len(sizes)-2],
                                         sizes[len(sizes)-1], 
                                         n=n,
-                                        device=device, mapping=map,))
+                                        mapping=map,))
 
             assert sizes[-1] % act_dim == 0, "Last LGN layer size must be divisible by act_dim"
             
