@@ -76,7 +76,7 @@ Results can also be logged to wandb.
 
 ## Setup 
 
-Requires **Xilinx Vivado 2022.2** or newer. Update the paths in `setup_vivado.sh` to match your installation, then run:
+Requires **Xilinx Vivado 2022.2** (newer not tested, and not recommended). Update the paths in `setup_vivado.sh` to match your installation, then run:
 ```bash
 chmod +x setup_vivado.sh
 ./setup_vivado.sh
