@@ -57,7 +57,7 @@ python sac.py --network-type quant --l 3  --size=256 --n-bit-quantization 8 --in
 | Network Type | Relevant Arguments | Description |
 | :--- | :--- | :--- |
 | **Common** | `--l`, `--running-normalization`, `--save-path` | Layers, normalization, and model saving. |
-| **wnn** | `--size`, `--bits`, `--n` | Input size, thermometer bits, and LUT inputs. |
+| **wnn** | `--size`, `--bits`, `--n` | LUT Layer width/size, thermometer bits, and LUT inputs. |
 | **quant** | `--n-bit-quantization`, `--initial-quantization`, `--last-bit-width`, `--enable-quant-step` | Bit-widths and quantization timing. |
 
 `ddpg.py` and `ppo.py` have similar parameters, but sometimes less is configurable from the cl.
