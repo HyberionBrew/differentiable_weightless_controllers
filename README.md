@@ -4,19 +4,19 @@ Code based on the CleanRL implementations of the corresponding algorithms: https
 
 # Setup
 
-1. Load system modules (if on a cluster, otherwise install locally, gcc 10 plays nice, higher versions might not work)
+Load system modules (if on a cluster, otherwise install locally, gcc 10 plays nice, higher versions might not work)
 
 ```bash
 module load cuda/11.8
 module load gcc/10
 ```
 
-2. Install PyTorch with specific CUDA 11.8 support
+Install PyTorch with specific CUDA 11.8 support
 ```bash
 pip install torch==2.3.0+cu118 -f https://download.pytorch.org/whl/torch_stable.html
 ```
 
-4. Install DWN (Requires local clone)
+Install DWN (Requires local clone)
 ```bash
 git clone https://github.com/alanbacellar/DWN
 ```
@@ -27,7 +27,7 @@ pip install setuptools wheel
 pip install -v --no-build-isolation ./DWN/
 ```
 
-6. Install remaining dependencies
+Install remaining dependencies
 ```bash
 pip install -r requirements.txt
 ```
