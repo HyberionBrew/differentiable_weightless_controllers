@@ -50,13 +50,10 @@ def export_to_verilog(layers, obs_dim, act_dim, bits, filename="lut_init.sv"):
     lines.append(f"  parameter int N_BITS = INPUTS_LUT * LUTS;")
     lines.append(f"  parameter int ACTIONS = {act_dim};")
     luts_last_layer = layers[-1].luts.shape[0]
-    #print('last_layer: ', luts_last_layer)
-    #exit()
     lines.append(f"  parameter int LAST_LUTS = {luts_last_layer};")
     lines.append(f"  parameter int ACTION_BITWIDTH = $clog2(LAST_LUTS/ACTIONS+1); // bitwidth of action outputs")
     lines.append(f"  parameter int ENCODE_OBS_BIT_WIDTH = $clog2(BITS_PER_OBS+1); // bitwidth for encoding observation inputs")
     # Last layer LUTS
-    #print(layers[-1])
 
 
     for l, layer in enumerate(layers):
@@ -96,10 +93,8 @@ def export_to_verilog(layers, obs_dim, act_dim, bits, filename="lut_init.sv"):
         print(luts.shape)
         lut_lines = []
         for idx, row in enumerate(luts):
-            #print(row)
             # reverse tensor
             row = reversed(row)  # reverse the order of bits in each LUT
-            # exit()
             bits = ", ".join(f"1'b{b.item()}" for b in row)
             comma = "," if idx < luts_n - 1 else ""        # no trailing comma on last
             #comma = "," if idx > 0 else ""        # no trailing comma on first
@@ -136,8 +131,6 @@ def make_group_sum_hook(tag: str = "GROUPSUM",
                 setattr(module, store_attr, out.to("cpu"))
             except Exception as e:
                 print(f"[{tag}] WARNING: could not store attr '{store_attr}': {e}")
-
-        # Do NOT return anything—returning from a forward hook would replace the module's output.
         return
 
     return _hook
