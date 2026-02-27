@@ -627,6 +627,7 @@ if __name__ == "__main__":
             "fc_mean": actor.fc_mean.state_dict(),
             "obs_norm": obs_norm.state_dict()
         }, f"{args.save_path}/model_sac_{args.env_id}_{args.size}_{args.bits}_{args.seed}_{args.n}.pth")
+        print('saved wnn model')
     if args.network_type == 'float':
         if obs_norm is None:
             obs_norm = ObsNorm(obs_shape, device=device)

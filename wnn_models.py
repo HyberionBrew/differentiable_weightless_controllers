@@ -91,7 +91,8 @@ class WNN(nn.Module):
         actor_net_lgn.append(dwn.GroupSum(k=act_dim, tau=1.0))
         actor_net_lgn.append(RegressionBucketLayer(sizes[-1], act_dim, 
                                                    init_log_alpha=init_log_alpha))
-
+        print(sizes)
+        print(actor_net_lgn)
         self.thermometer = thermometer
         self.net = actor_net_lgn
         

@@ -70,6 +70,52 @@ tensorboard --logdir models
 
 Results can also be logged to wandb.
 
-# Verilog Conversion Code and FINN
+# Verilog Conversion Code
 
-soon!
+## Setup 
+
+Requires **Xilinx Vivado 2022.2** or newer. Update the paths in `setup_vivado.sh` to match your installation, then run:
+```bash
+chmod +x setup_vivado.sh
+./setup_vivado.sh
+```
+
+## HDL Code
+Convert a trained model to Verilog:
+
+```bash
+python export_hdl.py --path=PATH_TO_MODEL
+```
+This populates hdl/verilog/pkg with:
+
+* .pkg: Network parameters (LUT contents, connections).
+* Test Vectors: Input/output files for testing.
+
+## Simulation
+*Note*: Update `IN_FILE` and `OUT_FILE` in `tb_in_out.sv` (lines 92-93) to point to your generated test vectors before running.
+
+Compile the design (ensure `-i` points to your specific package folder):
+```bash
+cd hdl/verilog
+xvlog -sv   -i .   -i pkg/HalfCheetah/128   dwn_lut_layer.sv   dwn_group_sum_pipelined.sv   mapping_layer.sv   dwn_top_ooc.sv   thermo_encode.sv   tb_in_out.sv
+```
+
+Run simulation:
+```bash
+xelab tb_in_out -R -debug typical -L unisims_ver
+```
+
+This should return `pass`.
+
+## Synthesis and Implementation
+Run the batch synthesis flow for resource and timing reports (can be found in `hdl/verilog/synth_results`):
+
+```bash
+vivado -mode batch \
+      -source compile_top_ooc_reports.tcl \
+      -tclargs --env=HalfCheetah --size=128 --pipe_regs=1
+```
+
+* Use `--env` and `--size` to select the correct `.pkg` folder.
+
+* Use `--pipe_regs` to tune the number of pipeline registers.
