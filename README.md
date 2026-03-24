@@ -4,6 +4,7 @@ Code based on the CleanRL implementations of the corresponding algorithms: https
 
 # Setup
 
+Tested with Python 3.9.20.
 Load system modules (if on a cluster, otherwise install locally, gcc 10 plays nice, higher versions might not work)
 
 ```bash
