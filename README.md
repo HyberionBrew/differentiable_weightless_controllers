@@ -1,4 +1,6 @@
-This is the official code repository for the paper "Differentiable Weightless Controllers: Learning Logic Circuits for Continuous Control" (https://arxiv.org/abs/2512.01467).  
+This is the official code repository for the paper "Differentiable Weightless Controllers: Learning Logic Circuits for Continuous Control" (https://arxiv.org/abs/2512.01467) and for the integer quantized baseline "Learning Quantized Continuous Controllers for Integer Hardware" (https://arxiv.org/abs/2511.07046).
+
+The described workflow below is for DWCs.
 
 Code based on the CleanRL implementations of the corresponding algorithms: https://docs.cleanrl.dev/, and see License file.  
 
